@@ -1,0 +1,17 @@
+.task {
+    display: flex;
+    margin: 25px;
+    padding: 25px;
+    flex-direction: column;
+    border: 2px solid black;
+    align-items: center;
+}
+.btn-1 {
+    display: flex;
+}
+.btn-2 {
+    padding: 20px;
+    margin : 15px;
+    cursor: pointer;
+    border-radius: 10px;
+}
