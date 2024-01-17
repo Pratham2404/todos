@@ -8,9 +8,9 @@ router.get("/getIncompleteTasks",getIncompleteTask)
 router.get("/getCompleteTasks",getCompleteTask)
 router.get("/getPendingTasks",getPendingTask)
 router.post("/addTask",addTask)
-router.get("/deleteTask/:id",deleteTask)
-router.post("/editTask/:id",editTask)
-router.post("/startTask/:id",startTask)
-router.post("/endTask/:id",endTask)
+router.delete("/deleteTask/:id",deleteTask)
+router.put("/editTask/:id",editTask)
+router.put("/startTask/:id",startTask)
+router.put("/endTask/:id",endTask)
 
 export default router

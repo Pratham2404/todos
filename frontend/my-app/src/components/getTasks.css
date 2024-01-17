@@ -5,13 +5,26 @@
     flex-direction: column;
     border: 2px solid black;
     align-items: center;
+    background-color: #f1f5cf;
 }
 .btn-1 {
     display: flex;
-}
-.btn-2 {
     padding: 20px;
     margin : 15px;
     cursor: pointer;
     border-radius: 10px;
+}
+.btn-2 {
+    font-weight: bold;
+    padding: 20px;
+    margin : 15px;
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.bullet {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }

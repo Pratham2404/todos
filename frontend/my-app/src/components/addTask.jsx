@@ -3,7 +3,7 @@ import axios from 'axios';
 import './addTask.css'
 import TaskList from './getTasks';
 
-const AddTask = () => {
+const AddTask = (props) => {
   const [taskData, setTaskData] = useState({
     id: '',
     title: '',
@@ -26,8 +26,9 @@ const AddTask = () => {
     try {
       const response = await axios.post('http://localhost:8000/api/addTask', taskData);
       setMessage(response.data.message);
+
     } catch (error) {
-      setMessage('Error adding task. Please try again.');
+      setMessage('Error adding task as task id already exist. Please try again.');
       console.error(error);
     }
   };
@@ -51,7 +52,7 @@ const AddTask = () => {
         </label>
         <br />
       </form>
-      <button  className= 'btn' type="submit">Add Task</button>
+      <button  className= 'btn' type="submit" onClick={handleSubmit}>Add Task</button>
       {message && <p>{message}</p>}
       <TaskList/>
     </div>
@@ -60,33 +61,3 @@ const AddTask = () => {
 
 export default AddTask;
 
-
-
-// import React, { useState } from 'react';
-// import { useNavigate } from "react-router-dom";
-
-
-
-// const AddTask = ({ onAddTask }) => {
-//   const [title, setTitle] = useState('');
-//   const [content, setContent] = useState('');
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     onAddTask({ title, content });
-//     setTitle('');
-//     setContent('');
-//   };
-
-//   return (
-//     <form onSubmit={handleSubmit}>
-//       <label htmlFor="title">Title:</label>
-//       <input type="text" id="title" value={title} onChange={(e) => setTitle(e.target.value)} required />
-//       <label htmlFor="content">Content:</label>
-//       <textarea id="content" value={content} onChange={(e) => setContent(e.target.value)} required></textarea>
-//       <button type="submit">Add Task</button>
-//     </form>
-//   );
-// };
-
-// export default AddTask;

@@ -70,38 +70,51 @@ const getTask = (req,res) =>{
 
 
 // Get list of all incomplete tasks
-const getIncompleteTask = (req,res) =>{
-    Todo.find({currStatus:"not completed"})
-    .then((data)=>{
+const getIncompleteTask = async (req,res) =>{
+    const data = await Todo.find({currStatus:"not completed"})
+    if(data.length === 0){
+        return res.status(200).json({message:"No incomplete tasks"})   
+    }
+
+    try {
         return res.status(200).json(data)
-    })
-    .catch ((error)=>{
+        
+    } catch (error) {
         return (res.status(500).json({ message: error.message }))
-    })
+    }
 }
 
 
 // Get list of all complete tasks
 const getCompleteTask = async (req,res) =>{
-    Todo.find({currStatus:"Completed"})
-    .then((data)=>{
+    const data = await Todo.find({currStatus:"Completed"})
+    if(data.length === 0){
+        return res.status(200).json({message:"No complete tasks"})   
+    }
+
+    try {
         return res.status(200).json(data)
-    })
-    .catch ((error)=>{
+        
+    } catch (error) {
         return (res.status(500).json({ message: error.message }))
-    })
+    }
+    
 }
 
 
 // Get list of all pending tasks
-const getPendingTask = (req,res) =>{
-    Todo.find({currStatus:"In progress"})
-    .then((data)=>{
+const getPendingTask = async (req,res) =>{
+    const data = await Todo.find({currStatus:"In progress"})
+    if(data.length === 0){
+        return res.status(200).json({message:"No pending tasks"})   
+    }
+
+    try {
         return res.status(200).json(data)
-    })
-    .catch ((error)=>{
+        
+    } catch (error) {
         return (res.status(500).json({ message: error.message }))
-    })
+    }
 }
 
 
